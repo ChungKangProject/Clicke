@@ -5,7 +5,11 @@ using UnityEngine;
 public class ButtonClick : MonoBehaviour
 {
 
+
     private int b;
+
+    int test1ab = 10000;
+
 
 
      
