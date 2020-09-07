@@ -22,7 +22,7 @@ public class UpgradeButton : MonoBehaviour
 
     public int level = 1;
 
-    public float upgradePow = 1.07f;
+    public float upgradePow = 1.06f;
 
     public float costPow = 3.14f;
 
