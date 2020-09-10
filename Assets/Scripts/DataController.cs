@@ -3,16 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using System.Text;
+using ScottGarland;
 
 
 public class DataController : MonoBehaviour
 {
     private static DataController instance;
-
+    private BigInteger goldpersecond;
 
     //껏을때에 playdate를 받아오는 함수 
     DateTime GetLastPlayDate()
     {
+
         if(!PlayerPrefs.HasKey("Time"))
         {
             return DateTime.Now;
@@ -60,7 +62,7 @@ public class DataController : MonoBehaviour
 
 
 
-    public long gold
+    public BigInteger gold
     {
         get
         {
@@ -82,8 +84,14 @@ public class DataController : MonoBehaviour
     {
         get
         {
-            return PlayerPrefs.GetInt("GoldPerClick");
+            int gold =  PlayerPrefs.GetInt("GoldPerClick");
 
+            if(gold == 0)
+            {
+                gold = 1;
+            }
+
+            return gold;
         }
         set
         {
@@ -107,7 +115,18 @@ public class DataController : MonoBehaviour
     {
 
         itembuttons = FindObjectsOfType<Itembutton>();
+        goldpersecond = new BigInteger();
 
+
+        for (int i = 0; i < itembuttons.Length; ++i)
+        {
+            
+                itembuttons[i].currentcoast = new BigInteger();
+                itembuttons[i].goldpersecond = new BigInteger();
+                itembuttons[i].startgoldpersecond = new BigInteger();
+                itembuttons[i].startcurrentcoast = new BigInteger();
+            
+        }
     }
 
     private void Start()
@@ -172,13 +191,13 @@ public class DataController : MonoBehaviour
 
         string strcurrentcoast = PlayerPrefs.GetString(key + "_cost", itembutton.currentcoast.ToString());
         string strgoldpersec = PlayerPrefs.GetString(key + "_goldPerSec", itembutton.goldpersecond.ToString());
-
+ 
 
         itembutton.itemLevel = PlayerPrefs.GetInt(key + "_level");
-        itembutton.currentcoast = Convert.ToInt64(strcurrentcoast);
-        itembutton.goldpersecond = Convert.ToInt64(strgoldpersec);
-
-        if(PlayerPrefs.GetInt(key + "_isPurchased") == 1)
+        itembutton.currentcoast = new BigInteger(strcurrentcoast);
+        itembutton.goldpersecond = new BigInteger(strgoldpersec);
+      
+        if (PlayerPrefs.GetInt(key + "_isPurchased") == 1)
         {
             itembutton.isPurchased = true;
         }
@@ -191,13 +210,14 @@ public class DataController : MonoBehaviour
    
 
 
-    public long GetGoldperSec()
+    public BigInteger GetGoldperSec()
     {
-        long goldpersecond = 0;
+       
         for(int i = 0; i  < itembuttons.Length; ++i)
         {
-            if (itembuttons[i].isPurchased)
+            if (itembuttons[i].isGoldpercheck)
             {
+                itembuttons[i].isGoldpercheck = false;
                 goldpersecond += itembuttons[i].goldpersecond;
             }
         }

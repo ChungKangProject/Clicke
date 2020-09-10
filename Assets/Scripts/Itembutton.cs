@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using ScottGarland;
 
 public class Itembutton : MonoBehaviour
 {
@@ -13,14 +14,14 @@ public class Itembutton : MonoBehaviour
     public int itemLevel = 0;
 
     [HideInInspector]
-    public long currentcoast;
+    public BigInteger currentcoast;
 
-    public long startcurrentcoast = 1;
+    public BigInteger startcurrentcoast;
 
     [HideInInspector]
-    public long goldpersecond;
+    public BigInteger goldpersecond;
 
-    public long startgoldpersecond = 0;
+    public BigInteger startgoldpersecond;
 
     public float coastpow = 3.14f;
 
@@ -28,6 +29,9 @@ public class Itembutton : MonoBehaviour
 
     [HideInInspector]
     public bool isPurchased = false;
+
+    [HideInInspector]
+    public bool isGoldpercheck;
 
     private string coastNumber;
 
@@ -39,6 +43,8 @@ public class Itembutton : MonoBehaviour
 
         DataController.Instance.LoadItemButton(this);
         StartCoroutine("AddGoldLoop");
+
+        isGoldpercheck = true;
 
         UpdateUI();
     }
@@ -80,9 +86,14 @@ public class Itembutton : MonoBehaviour
     //item에 능력을 update해주는 함수 
    public void UpdateItem()
     {
-        goldpersecond = goldpersecond + startgoldpersecond * (int)Mathf.Pow(upgradepow, itemLevel);
+       isGoldpercheck = true;
+      long math =   (long)Mathf.Pow(upgradepow, itemLevel);
+      long test = (long)Mathf.Pow(coastpow, itemLevel);
 
-        currentcoast = startcurrentcoast * (int)Mathf.Pow(coastpow, itemLevel);
+        goldpersecond = math;
+
+        currentcoast = test;
+        
     }
 
     //item ui를 보여주는 함수 
@@ -90,255 +101,319 @@ public class Itembutton : MonoBehaviour
     {
 
         string CoastMoney = checkcoast();
+        string coastgoldpersec = checkgoldpersec();
 
-        ItemDisplayer.text = ItemName + "\n Level: " + itemLevel + "\n coast: " + CoastMoney + "\n Gold Persec:" + goldpersecond
+        ItemDisplayer.text = ItemName + "\n Level: " + itemLevel + "\n coast: " + CoastMoney + "\n Gold Persec:" + coastgoldpersec
         + "\n ispurchased: " + isPurchased;
     }
 
 
-    
-    //현재에 돈을 check하여 문자로 변환해준다.
     private string checkcoast()
     {
 
-        coastNumber = currentcoast.ToString();
-
-        if (coastNumber.Length <= (int)lebate.a)
-        {
-            return coastNumber;
-        }
-        else if (coastNumber.Length <= (int)lebate.b)
-        {
-            coastNumber = coastNumber.Substring(0, 5);
-            coastNumber = coastNumber.Insert(2, ",");
-            coastNumber = coastNumber.Insert(6, "a");   
-
-
-            return coastNumber;
-        }
-        else if (coastNumber.Length <= (int)lebate.c)
-        {
-            coastNumber = coastNumber.Substring(0, 5);
-            coastNumber = coastNumber.Insert(2, ",");
-            coastNumber = coastNumber.Insert(6, "b");
-
-
-            return coastNumber;
-        }
-        else if (coastNumber.Length <= (int)lebate.d)
-        {
-            coastNumber = coastNumber.Substring(0, 5);
-            coastNumber = coastNumber.Insert(2, ",");
-            coastNumber = coastNumber.Insert(6, "c");
-
-
-            return coastNumber;
-        }
-        else if (coastNumber.Length <= (int)lebate.e)
-        {
-            coastNumber = coastNumber.Substring(0, 5);
-            coastNumber = coastNumber.Insert(2, ",");
-            coastNumber = coastNumber.Insert(6, "d");
-
-
-            return coastNumber;
-        }
-        else if (coastNumber.Length <= (int)lebate.f)
-        {
-            coastNumber = coastNumber.Substring(0, 5);
-            coastNumber = coastNumber.Insert(2, ",");
-            coastNumber = coastNumber.Insert(6, "e");
-
-
-            return coastNumber;
-        }
-        else if (coastNumber.Length <= (int)lebate.g)
-        {
-            coastNumber = coastNumber.Substring(0, 5);
-            coastNumber = coastNumber.Insert(2, ",");
-            coastNumber = coastNumber.Insert(6, "f");
-
-            return coastNumber;
-        }
-        else if (coastNumber.Length <= (int)lebate.h)
-        {
-            coastNumber = coastNumber.Substring(0, 5);
-            coastNumber = coastNumber.Insert(2, ",");
-            coastNumber = coastNumber.Insert(6, "g");
-
-
-         
-           return coastNumber;
-        }
-        else if (coastNumber.Length <= (int)lebate.i)
-        {
-            coastNumber = coastNumber.Substring(0, 5);
-            coastNumber = coastNumber.Insert(2, ",");
-            coastNumber = coastNumber.Insert(6, "h");
-
-            
-            return coastNumber;
-        }
-        else if (coastNumber.Length <= (int)lebate.j)
-        {
-            coastNumber = coastNumber.Substring(0, 5);
-            coastNumber = coastNumber.Insert(2, ",");
-            coastNumber = coastNumber.Insert(6, "i");
-
-            
-
-            return coastNumber;
-        }
-        else if (coastNumber.Length <= (int)lebate.k)
-        {
-            coastNumber = coastNumber.Substring(0, 5);
-            coastNumber = coastNumber.Insert(2, ",");
-            coastNumber = coastNumber.Insert(6, "j");
-
-
-            return coastNumber;
-        }
-        else if (coastNumber.Length <= (int)lebate.l)
-        {
-            coastNumber = coastNumber.Substring(0, 5);
-            coastNumber = coastNumber.Insert(2, ",");
-            coastNumber = coastNumber.Insert(6, "k");
-
-
-            return coastNumber;
-        }
-        else if (coastNumber.Length <= (int)lebate.M)
-        {
-            coastNumber = coastNumber.Substring(0, 5);
-            coastNumber = coastNumber.Insert(2, ",");
-            coastNumber = coastNumber.Insert(6, "l");
-
-
-            return coastNumber;
-        }
-        else if (coastNumber.Length <= (int)lebate.N)
-        {
-            coastNumber = coastNumber.Substring(0, 5);
-            coastNumber = coastNumber.Insert(2, ",");
-            coastNumber = coastNumber.Insert(6, "m");
-
-
-            return coastNumber;
-        }
-        else if (coastNumber.Length <= (int)lebate.O)
-        {
-            coastNumber = coastNumber.Substring(0, 5);
-            coastNumber = coastNumber.Insert(2, ",");
-            coastNumber = coastNumber.Insert(6, "n");
-
-
-            return coastNumber;
-        }
-        else if (coastNumber.Length <= (int)lebate.P)
-        {
-            coastNumber = coastNumber.Substring(0, 5);
-            coastNumber = coastNumber.Insert(2, ",");
-            coastNumber = coastNumber.Insert(6, "o");
-
-
-            return coastNumber;
-        }
-        else if (coastNumber.Length <= (int)lebate.Q)
-        {
-            coastNumber = coastNumber.Substring(0, 5);
-            coastNumber = coastNumber.Insert(2, ",");
-            coastNumber = coastNumber.Insert(6, "p");
-
-
-            return coastNumber;
-        }
-        else if (coastNumber.Length <= (int)lebate.R)
-        {
-            coastNumber = coastNumber.Substring(0, 5);
-            coastNumber = coastNumber.Insert(2, ",");
-            coastNumber = coastNumber.Insert(6, "q");
-
-
-            return coastNumber;
-        }
-        else if (coastNumber.Length <= (int)lebate.S)
-        {
-            coastNumber = coastNumber.Substring(0, 5);
-            coastNumber = coastNumber.Insert(2, ",");
-            coastNumber = coastNumber.Insert(6, "r");
-
-
-            return coastNumber;
-        }
-        else if (coastNumber.Length <= (int)lebate.T)
-        {
-            coastNumber = coastNumber.Substring(0, 5);
-            coastNumber = coastNumber.Insert(2, ",");
-            coastNumber = coastNumber.Insert(6, "s");
-
-
-            return coastNumber;
-        }
-        else if (coastNumber.Length <= (int)lebate.U)
-        {
-            coastNumber = coastNumber.Substring(0, 5);
-            coastNumber = coastNumber.Insert(2, ",");
-            coastNumber = coastNumber.Insert(6, "t");
-
-
-            return coastNumber;
-        }
-        else if (coastNumber.Length <= (int)lebate.V)
-        {
-            coastNumber = coastNumber.Substring(0, 5);
-            coastNumber = coastNumber.Insert(2, ",");
-            coastNumber = coastNumber.Insert(6, "u");
-
-
-            return coastNumber;
-        }
-        else if (coastNumber.Length <= (int)lebate.W)
-        {
-            coastNumber = coastNumber.Substring(0, 5);
-            coastNumber = coastNumber.Insert(2, ",");
-            coastNumber = coastNumber.Insert(6, "v");
-
-
-            return coastNumber;
-        }
-        else if (coastNumber.Length <= (int)lebate.X)
-        {
-            coastNumber = coastNumber.Substring(0, 5);
-            coastNumber = coastNumber.Insert(2, ",");
-            coastNumber = coastNumber.Insert(6, "w");
-
-
-            return coastNumber;
-        }
-        else if (coastNumber.Length <= (int)lebate.Y)
-        {
-            coastNumber = coastNumber.Substring(0, 5);
-            coastNumber = coastNumber.Insert(2, ",");
-            coastNumber = coastNumber.Insert(6, "x");
-
-
-            return coastNumber;
-        }
-        else if (coastNumber.Length <= (int)lebate.Z)
-        {
-            coastNumber = coastNumber.Substring(0, 5);
-            coastNumber = coastNumber.Insert(2, ",");
-            coastNumber = coastNumber.Insert(6, "y");
-
-
-            return coastNumber;
-        }
         
-        return coastNumber;
+        int Len = goldpersecond.ToString().Length;
+        string currenttext = "";
+        string finaltext = "";
+        switch (Len)
+        {
+            case (int)Itembutton.lebate.a:
+                currenttext = goldpersecond.ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.a.ToString();
+                break;
+            case (int)Itembutton.lebate.b:
+                currenttext = goldpersecond.ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.b.ToString();
+                break;
+            case (int)Itembutton.lebate.c:
+                currenttext = goldpersecond.ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.c.ToString();
+                break;
+            case (int)Itembutton.lebate.d:
+                currenttext = goldpersecond.ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.d.ToString();
+                break;
+            case (int)Itembutton.lebate.e:
+                currenttext = goldpersecond.ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.e.ToString();
+                break;
+            case (int)Itembutton.lebate.f:
+                currenttext = goldpersecond.ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.f.ToString();
+                break;
+            case (int)Itembutton.lebate.g:
+                currenttext = goldpersecond.ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.g.ToString();
+                break;
+            case (int)Itembutton.lebate.h:
+                currenttext = goldpersecond.ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.h.ToString();
+                break;
+            case (int)Itembutton.lebate.i:
+                currenttext = goldpersecond.ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.i.ToString();
+                break;
+            case (int)Itembutton.lebate.j:
+                currenttext = goldpersecond.ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.j.ToString();
+                break;
+            case (int)Itembutton.lebate.k:
+                currenttext = goldpersecond.ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.k.ToString();
+                break;
+            case (int)Itembutton.lebate.l:
+                currenttext = goldpersecond.ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.l.ToString();
+                break;
+            case (int)Itembutton.lebate.M:
+                currenttext = goldpersecond.ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.M.ToString();
+                break;
+            case (int)Itembutton.lebate.N:
+                currenttext = goldpersecond.ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.N.ToString();
+                break;
+            case (int)Itembutton.lebate.O:
+                currenttext = goldpersecond.ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.O.ToString();
+                break;
+            case (int)Itembutton.lebate.P:
+                currenttext = goldpersecond.ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.P.ToString();
+                break;
+            case (int)Itembutton.lebate.Q:
+                currenttext = goldpersecond.ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.Q.ToString();
+                break;
+            case (int)Itembutton.lebate.R:
+                currenttext = goldpersecond.ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.R.ToString();
+                break;
+            case (int)Itembutton.lebate.S:
+                currenttext = goldpersecond.ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.S.ToString();
+                break;
+            case (int)Itembutton.lebate.T:
+                currenttext = goldpersecond.ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.T.ToString();
+                break;
+            case (int)Itembutton.lebate.U:
+                currenttext = goldpersecond.ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.U.ToString();
+                break;
+            case (int)Itembutton.lebate.V:
+                currenttext = goldpersecond.ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.V.ToString();
+                break;
+            case (int)Itembutton.lebate.W:
+                currenttext = goldpersecond.ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.W.ToString();
+                break;
+            case (int)Itembutton.lebate.X:
+                currenttext = goldpersecond.ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.X.ToString();
+                break;
+            case (int)Itembutton.lebate.Y:
+                currenttext = goldpersecond.ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.Y.ToString();
+                break;
+            case (int)Itembutton.lebate.Z:
+                currenttext = goldpersecond.ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.Z.ToString();
+                break;
+
+            default:
+                finaltext = goldpersecond.ToString();
+                break;
+
+
+        }
+
+        return finaltext;
     }
 
 
- public enum lebate
+
+    private string checkgoldpersec()
+    {
+
+
+        int Len = currentcoast.ToString().Length;
+        string currenttext = "";
+        string finaltext = "";
+        switch (Len)
+        {
+            case (int)Itembutton.lebate.a:
+                currenttext = currentcoast.ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.a.ToString();
+                break;
+            case (int)Itembutton.lebate.b:
+                currenttext = currentcoast.ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.b.ToString();
+                break;
+            case (int)Itembutton.lebate.c:
+                currenttext = currentcoast.ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.c.ToString();
+                break;
+            case (int)Itembutton.lebate.d:
+                currenttext = currentcoast.ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.d.ToString();
+                break;
+            case (int)Itembutton.lebate.e:
+                currenttext = currentcoast.ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.e.ToString();
+                break;
+            case (int)Itembutton.lebate.f:
+                currenttext = currentcoast.ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.f.ToString();
+                break;
+            case (int)Itembutton.lebate.g:
+                currenttext = currentcoast.ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.g.ToString();
+                break;
+            case (int)Itembutton.lebate.h:
+                currenttext = currentcoast.ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.h.ToString();
+                break;
+            case (int)Itembutton.lebate.i:
+                currenttext = currentcoast.ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.i.ToString();
+                break;
+            case (int)Itembutton.lebate.j:
+                currenttext = currentcoast.ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.j.ToString();
+                break;
+            case (int)Itembutton.lebate.k:
+                currenttext = currentcoast.ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.k.ToString();
+                break;
+            case (int)Itembutton.lebate.l:
+                currenttext = currentcoast.ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.l.ToString();
+                break;
+            case (int)Itembutton.lebate.M:
+                currenttext = currentcoast.ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.M.ToString();
+                break;
+            case (int)Itembutton.lebate.N:
+                currenttext = currentcoast.ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.N.ToString();
+                break;
+            case (int)Itembutton.lebate.O:
+                currenttext = currentcoast.ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.O.ToString();
+                break;
+            case (int)Itembutton.lebate.P:
+                currenttext = currentcoast.ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.P.ToString();
+                break;
+            case (int)Itembutton.lebate.Q:
+                currenttext = currentcoast.ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.Q.ToString();
+                break;
+            case (int)Itembutton.lebate.R:
+                currenttext = currentcoast.ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.R.ToString();
+                break;
+            case (int)Itembutton.lebate.S:
+                currenttext = currentcoast.ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.S.ToString();
+                break;
+            case (int)Itembutton.lebate.T:
+                currenttext = currentcoast.ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.T.ToString();
+                break;
+            case (int)Itembutton.lebate.U:
+                currenttext = currentcoast.ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.U.ToString();
+                break;
+            case (int)Itembutton.lebate.V:
+                currenttext = currentcoast.ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.V.ToString();
+                break;
+            case (int)Itembutton.lebate.W:
+                currenttext = currentcoast.ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.W.ToString();
+                break;
+            case (int)Itembutton.lebate.X:
+                currenttext = currentcoast.ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.X.ToString();
+                break;
+            case (int)Itembutton.lebate.Y:
+                currenttext = currentcoast.ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.Y.ToString();
+                break;
+            case (int)Itembutton.lebate.Z:
+                currenttext = currentcoast.ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.Z.ToString();
+                break;
+
+            default:
+                finaltext = currentcoast.ToString();
+                break;
+
+
+        }
+
+        return finaltext;
+    }
+
+
+
+
+    public enum lebate
     {
         a = 5,
         b = 6,

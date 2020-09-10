@@ -19,247 +19,332 @@ public class UImanager : MonoBehaviour
     List<string> MoneyName = new List<string>();
     private void Update()
     {
+
+        string data = GoldPerdisplay();
+
+        string moneyunit = GoldDisplay();
+
         GoldPerClickDisplayer.text = "GOLD DISPLAY: " + DataController.Instance.goldPerClick;
-
-        goldpersecDisplayer.text = "GOLD PER SEC:" + DataController.Instance.GetGoldperSec();
-
+        
+        goldpersecDisplayer.text = "GOLD PER SEC:" + data;
+        
+        GoldDisPlayer.text = "GOLD:" + moneyunit;
     }
 
     private void Start()
     {
-        StartCoroutine(GoldDisplay());
+        //StartCoroutine(GoldDisplay());
     }
 
-
-    IEnumerator GoldDisplay()
+    private string GoldDisplay()
     {
-        while (true)
+        int Len = DataController.Instance.gold.ToString().Length;
+        string currenttext = "";
+        string finaltext ="";
+        switch(Len)
         {
-            DataController.Instance.gold.ToString();
-            
+            case (int)Itembutton.lebate.a:
+                 currenttext = DataController.Instance.gold.ToString().Substring(0, 5);
+                 finaltext = currenttext.Insert(2, ",");
+                 finaltext = finaltext + Itembutton.lebate.a.ToString();
+                break;         
+            case (int)Itembutton.lebate.b:
+                currenttext = DataController.Instance.gold.ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.b.ToString();
+                break;
+            case (int)Itembutton.lebate.c:
+                currenttext = DataController.Instance.gold.ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.c.ToString();
+                break;
+            case (int)Itembutton.lebate.d:
+                currenttext = DataController.Instance.gold.ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.d.ToString();
+                break;
+            case (int)Itembutton.lebate.e:
+                currenttext = DataController.Instance.gold.ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.e.ToString();
+                break;
+            case (int)Itembutton.lebate.f:
+                currenttext = DataController.Instance.gold.ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.f.ToString();
+                break;
+            case (int)Itembutton.lebate.g:
+                currenttext = DataController.Instance.gold.ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.g.ToString();
+                break;
+            case (int)Itembutton.lebate.h:
+                currenttext = DataController.Instance.gold.ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.h.ToString();
+                break;
+            case (int)Itembutton.lebate.i:
+                currenttext = DataController.Instance.gold.ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.i.ToString();
+                break;
+            case (int)Itembutton.lebate.j:
+                currenttext = DataController.Instance.gold.ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.j.ToString();
+                break;
+            case (int)Itembutton.lebate.k:
+                currenttext = DataController.Instance.gold.ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.k.ToString();
+                break;
+            case (int)Itembutton.lebate.l:
+                currenttext = DataController.Instance.gold.ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.l.ToString();
+                break;
+            case (int)Itembutton.lebate.M:
+                currenttext = DataController.Instance.gold.ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.M.ToString();
+                break;
+            case (int)Itembutton.lebate.N:
+                currenttext = DataController.Instance.gold.ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.N.ToString();
+                break;
+            case (int)Itembutton.lebate.O:
+                currenttext = DataController.Instance.gold.ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.O.ToString();
+                break;
+            case (int)Itembutton.lebate.P:
+                currenttext = DataController.Instance.gold.ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.P.ToString();
+                break;
+            case (int)Itembutton.lebate.Q:
+                currenttext = DataController.Instance.gold.ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.Q.ToString();
+                break;
+            case (int)Itembutton.lebate.R:
+                currenttext = DataController.Instance.gold.ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.R.ToString();
+                break;
+            case (int)Itembutton.lebate.S:
+                currenttext = DataController.Instance.gold.ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.S.ToString();
+                break;
+            case (int)Itembutton.lebate.T:
+                currenttext = DataController.Instance.gold.ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.T.ToString();
+                break;
+            case (int)Itembutton.lebate.U:
+                currenttext = DataController.Instance.gold.ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.U.ToString();
+                break;
+            case (int)Itembutton.lebate.V:  
+                currenttext = DataController.Instance.gold.ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.V.ToString();
+                break;
+            case (int)Itembutton.lebate.W:
+                currenttext = DataController.Instance.gold.ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.W.ToString();
+                break;
+            case (int)Itembutton.lebate.X:
+                currenttext = DataController.Instance.gold.ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.X.ToString();
+                break;
+            case (int)Itembutton.lebate.Y:
+                currenttext = DataController.Instance.gold.ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.Y.ToString();
+                break;
+            case (int)Itembutton.lebate.Z:
+                currenttext = DataController.Instance.gold.ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.Z.ToString();
+                break;
 
-            if(DataController.Instance.gold.ToString().Length <= (int)Itembutton.lebate.a)
-            {
-                GoldDisPlayer.text = "GOLD: " + DataController.Instance.gold;
-
-                yield return null;
-            }
-           else if (   DataController.Instance.gold.ToString().Length <= (int)Itembutton.lebate.b)
-            {
-              string testtext = DataController.Instance.gold.ToString().Substring(0, 5);
-              string te = testtext.Insert(2, ",");
-              GoldDisPlayer.text = "GOLD: " + te + " " + Itembutton.lebate.a.ToString();
-
-                yield return null;
-            }
-            else if (DataController.Instance.gold.ToString().Length <= (int)Itembutton.lebate.c)
-            {
-                string testtext = DataController.Instance.gold.ToString().Substring(0, 5);
-                string te = testtext.Insert(2, ",");
-                GoldDisPlayer.text = "GOLD: " + te + " " + Itembutton.lebate.b.ToString();
-
-                yield return null;
-            }
-            else if (DataController.Instance.gold.ToString().Length <= (int)Itembutton.lebate.d)
-            {
-                string testtext = DataController.Instance.gold.ToString().Substring(0, 5);
-                string te = testtext.Insert(2, ",");
-                GoldDisPlayer.text = "GOLD: " + te + " " + Itembutton.lebate.c.ToString();
-
-                yield return null;
-            }
-            else if (DataController.Instance.gold.ToString().Length <= (int)Itembutton.lebate.e)
-            {
-                string testtext = DataController.Instance.gold.ToString().Substring(0, 5);
-                string te = testtext.Insert(2, ",");
-                GoldDisPlayer.text = "GOLD: " + te + " " + Itembutton.lebate.d.ToString();
-
-                yield return null;
-            }
-            else if (DataController.Instance.gold.ToString().Length <= (int)Itembutton.lebate.f)
-            {
-                string testtext = DataController.Instance.gold.ToString().Substring(0, 5);
-                string te = testtext.Insert(2, ",");
-                GoldDisPlayer.text = "GOLD: " + te + " " + Itembutton.lebate.e.ToString();
-
-                yield return null;
-            }
-            else if (DataController.Instance.gold.ToString().Length <= (int)Itembutton.lebate.g)
-            {
-                string testtext = DataController.Instance.gold.ToString().Substring(0, 5);
-                string te = testtext.Insert(2, ",");
-                GoldDisPlayer.text = "GOLD: " + te + " " + Itembutton.lebate.f.ToString();
-
-                yield return null;
-            }
-            else if (DataController.Instance.gold.ToString().Length <= (int)Itembutton.lebate.h)
-            {
-                string testtext = DataController.Instance.gold.ToString().Substring(0, 5);
-                string te = testtext.Insert(2, ",");
-                GoldDisPlayer.text = "GOLD: " + te + " " + Itembutton.lebate.g.ToString();
-
-                yield return null;
-            }
-            else if (DataController.Instance.gold.ToString().Length <= (int)Itembutton.lebate.i)
-            {
-                string testtext = DataController.Instance.gold.ToString().Substring(0, 5);
-                string te = testtext.Insert(2, ",");
-                GoldDisPlayer.text = "GOLD: " + te + " " + Itembutton.lebate.h.ToString();
-
-                yield return null;
-            }
-            else if (DataController.Instance.gold.ToString().Length <= (int)Itembutton.lebate.j)
-            {
-                string testtext = DataController.Instance.gold.ToString().Substring(0, 5);
-                string te = testtext.Insert(2, ",");
-                GoldDisPlayer.text = "GOLD: " + te + " " + Itembutton.lebate.i.ToString();
-
-                yield return null;
-            }
-            else if (DataController.Instance.gold.ToString().Length <= (int)Itembutton.lebate.k)
-            {
-                string testtext = DataController.Instance.gold.ToString().Substring(0, 5);
-                string te = testtext.Insert(2, ",");
-                GoldDisPlayer.text = "GOLD: " + te + " " + Itembutton.lebate.j.ToString();
-
-                yield return null;
-            }
-            else if (DataController.Instance.gold.ToString().Length <= (int)Itembutton.lebate.l)
-            {
-                string testtext = DataController.Instance.gold.ToString().Substring(0, 5);
-                string te = testtext.Insert(2, ",");
-                GoldDisPlayer.text = "GOLD: " + te + " " + Itembutton.lebate.k.ToString();
-
-                yield return null;
-            }
-            else if (DataController.Instance.gold.ToString().Length <= (int)Itembutton.lebate.M)
-            {
-                string testtext = DataController.Instance.gold.ToString().Substring(0, 5);
-                string te = testtext.Insert(2, ",");
-                GoldDisPlayer.text = "GOLD: " + te + " " + Itembutton.lebate.l.ToString();
-
-                yield return null;
-            }
-            else if (DataController.Instance.gold.ToString().Length <= (int)Itembutton.lebate.N)
-            {
-                string testtext = DataController.Instance.gold.ToString().Substring(0, 5);
-                string te = testtext.Insert(2, ",");
-                GoldDisPlayer.text = "GOLD: " + te + " " + Itembutton.lebate.M.ToString();
-
-                yield return null;
-            }
-            else if (DataController.Instance.gold.ToString().Length <= (int)Itembutton.lebate.O)
-            {
-                string testtext = DataController.Instance.gold.ToString().Substring(0, 5);
-                string te = testtext.Insert(2, ",");
-                GoldDisPlayer.text = "GOLD: " + te + " " + Itembutton.lebate.N.ToString();
-
-                yield return null;
-            }
-            else if (DataController.Instance.gold.ToString().Length <= (int)Itembutton.lebate.P)
-            {
-                string testtext = DataController.Instance.gold.ToString().Substring(0, 5);
-                string te = testtext.Insert(2, ",");
-                GoldDisPlayer.text = "GOLD: " + te + " " + Itembutton.lebate.O.ToString();
-
-                yield return null;
-            }
-            else if (DataController.Instance.gold.ToString().Length <= (int)Itembutton.lebate.Q)
-            {
-                string testtext = DataController.Instance.gold.ToString().Substring(0, 5);
-                string te = testtext.Insert(2, ",");
-                GoldDisPlayer.text = "GOLD: " + te + " " + Itembutton.lebate.P.ToString();
-
-                yield return null;
-            }
-            else if (DataController.Instance.gold.ToString().Length <= (int)Itembutton.lebate.R)
-            {
-                string testtext = DataController.Instance.gold.ToString().Substring(0, 5);
-                string te = testtext.Insert(2, ",");
-                GoldDisPlayer.text = "GOLD: " + te + " " + Itembutton.lebate.Q.ToString();
-
-                yield return null;
-            }
-            else if (DataController.Instance.gold.ToString().Length <= (int)Itembutton.lebate.S)
-            {
-                string testtext = DataController.Instance.gold.ToString().Substring(0, 5);
-                string te = testtext.Insert(2, ",");
-                GoldDisPlayer.text = "GOLD: " + te + " " + Itembutton.lebate.R.ToString();
-
-                yield return null;
-            }
-            else if (DataController.Instance.gold.ToString().Length <= (int)Itembutton.lebate.T)
-            {
-                string testtext = DataController.Instance.gold.ToString().Substring(0, 5);
-                string te = testtext.Insert(2, ",");
-                GoldDisPlayer.text = "GOLD: " + te + " " + Itembutton.lebate.S.ToString();
-
-                yield return null;
-            }
-            else if (DataController.Instance.gold.ToString().Length <= (int)Itembutton.lebate.U)
-            {
-                string testtext = DataController.Instance.gold.ToString().Substring(0, 5);
-                string te = testtext.Insert(2, ",");
-                GoldDisPlayer.text = "GOLD: " + te + " " + Itembutton.lebate.T.ToString();
-
-                yield return null;
-            }
-            else if (DataController.Instance.gold.ToString().Length <= (int)Itembutton.lebate.V)
-            {
-                string testtext = DataController.Instance.gold.ToString().Substring(0, 5);
-                string te = testtext.Insert(2, ",");
-                GoldDisPlayer.text = "GOLD: " + te + " " + Itembutton.lebate.U.ToString();
-
-                yield return null;
-            }
-            else if (DataController.Instance.gold.ToString().Length <= (int)Itembutton.lebate.W)
-            {
-                string testtext = DataController.Instance.gold.ToString().Substring(0, 5);
-                string te = testtext.Insert(2, ",");
-                GoldDisPlayer.text = "GOLD: " + te + " " + Itembutton.lebate.V.ToString();
-
-                yield return null;
-            }
-            else if (DataController.Instance.gold.ToString().Length <= (int)Itembutton.lebate.X)
-            {
-                string testtext = DataController.Instance.gold.ToString().Substring(0, 5);
-                string te = testtext.Insert(2, ",");
-                GoldDisPlayer.text = "GOLD: " + te + " " + Itembutton.lebate.W.ToString();
-
-                yield return null;
-            }
-            else if (DataController.Instance.gold.ToString().Length <= (int)Itembutton.lebate.Y)
-            {
-                string testtext = DataController.Instance.gold.ToString().Substring(0, 5);
-                string te = testtext.Insert(2, ",");
-                GoldDisPlayer.text = "GOLD: " + te + " " + Itembutton.lebate.X.ToString();
-
-                yield return null;
-            }
-            else if (DataController.Instance.gold.ToString().Length <= (int)Itembutton.lebate.Z)
-            {
-                string testtext = DataController.Instance.gold.ToString().Substring(0, 5);
-                string te = testtext.Insert(2, ",");
-                GoldDisPlayer.text = "GOLD: " + te + " " + Itembutton.lebate.Y.ToString();
-
-                yield return null;
-            }
+            default:
+                 finaltext =  DataController.Instance.gold.ToString();
+                break;
 
 
-
-
-
-            yield return new WaitForSeconds(0.1f);
         }
+
+        return finaltext;
+    }
+
+
+
+    private string GoldPerdisplay()
+    {
+        int Len = DataController.Instance.GetGoldperSec().ToString().Length;
+        string currenttext = "";
+        string finaltext = "";
+        switch (Len)
+        {
+            case (int)Itembutton.lebate.a:
+                currenttext = DataController.Instance.GetGoldperSec().ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.a.ToString();
+                break;
+            case (int)Itembutton.lebate.b:
+                currenttext = DataController.Instance.GetGoldperSec().ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.b.ToString();
+                break;
+            case (int)Itembutton.lebate.c:
+                currenttext = DataController.Instance.GetGoldperSec().ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.c.ToString();
+                break;
+            case (int)Itembutton.lebate.d:
+                currenttext = DataController.Instance.GetGoldperSec().ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.d.ToString();
+                break;
+            case (int)Itembutton.lebate.e:
+                currenttext = DataController.Instance.GetGoldperSec().ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.e.ToString();
+                break;
+            case (int)Itembutton.lebate.f:
+                currenttext = DataController.Instance.GetGoldperSec().ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.f.ToString();
+                break;
+            case (int)Itembutton.lebate.g:
+                currenttext = DataController.Instance.GetGoldperSec().ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.g.ToString();
+                break;
+            case (int)Itembutton.lebate.h:
+                currenttext = DataController.Instance.GetGoldperSec().ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.h.ToString();
+                break;
+            case (int)Itembutton.lebate.i:
+                currenttext = DataController.Instance.GetGoldperSec().ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.i.ToString();
+                break;
+            case (int)Itembutton.lebate.j:
+                currenttext = DataController.Instance.GetGoldperSec().ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.j.ToString();
+                break;
+            case (int)Itembutton.lebate.k:
+                currenttext = DataController.Instance.GetGoldperSec().ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.k.ToString();
+                break;
+            case (int)Itembutton.lebate.l:
+                currenttext = DataController.Instance.GetGoldperSec().ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.l.ToString();
+                break;
+            case (int)Itembutton.lebate.M:
+                currenttext = DataController.Instance.GetGoldperSec().ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.M.ToString();
+                break;
+            case (int)Itembutton.lebate.N:
+                currenttext = DataController.Instance.GetGoldperSec().ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.N.ToString();
+                break;
+            case (int)Itembutton.lebate.O:
+                currenttext = DataController.Instance.GetGoldperSec().ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.O.ToString();
+                break;
+            case (int)Itembutton.lebate.P:
+                currenttext = DataController.Instance.GetGoldperSec().ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.P.ToString();
+                break;
+            case (int)Itembutton.lebate.Q:
+                currenttext = DataController.Instance.GetGoldperSec().ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.Q.ToString();
+                break;
+            case (int)Itembutton.lebate.R:
+                currenttext = DataController.Instance.GetGoldperSec().ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.R.ToString();
+                break;
+            case (int)Itembutton.lebate.S:
+                currenttext = DataController.Instance.GetGoldperSec().ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.S.ToString();
+                break;
+            case (int)Itembutton.lebate.T:
+                currenttext = DataController.Instance.GetGoldperSec().ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.T.ToString();
+                break;
+            case (int)Itembutton.lebate.U:
+                currenttext = DataController.Instance.GetGoldperSec().ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.U.ToString();
+                break;
+            case (int)Itembutton.lebate.V:
+                currenttext = DataController.Instance.GetGoldperSec().ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.V.ToString();
+                break;
+            case (int)Itembutton.lebate.W:
+                currenttext = DataController.Instance.GetGoldperSec().ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.W.ToString();
+                break;
+            case (int)Itembutton.lebate.X:
+                currenttext = DataController.Instance.GetGoldperSec().ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.X.ToString();
+                break;
+            case (int)Itembutton.lebate.Y:
+                currenttext = DataController.Instance.GetGoldperSec().ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.Y.ToString();
+                break;
+            case (int)Itembutton.lebate.Z:
+                currenttext = DataController.Instance.GetGoldperSec().ToString().Substring(0, 5);
+                finaltext = currenttext.Insert(2, ",");
+                finaltext = finaltext + Itembutton.lebate.Z.ToString();
+                break;
+
+            default:
+                finaltext = DataController.Instance.GetGoldperSec().ToString();
+                break;
+
+
+        }
+
+        return finaltext;
     }
 
 
 
 
-
-
-
-
-    
-    
 }
+
+
+
+
+
+
+
+
+    
+    
