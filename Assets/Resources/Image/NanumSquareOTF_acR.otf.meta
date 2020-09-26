@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 4960cdc717bd14a42b670bb652407df6
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: NanumSquareOTF_ac
+  fontNames:
+  - NanumSquareOTF_ac
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 7c5deaaed00cd6646b6af9a308e3182e, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
