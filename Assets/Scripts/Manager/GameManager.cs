@@ -34,6 +34,16 @@ public class GameManager : MonoSingleton<GameManager>
         return gameObject;
     }
 
+    public static T Create<T>(ActorRecord actorRecord) where T : IActor
+    {
+        GameObject gameObject = MonoSingleton<LoadManager>.Instance.Get ( actorRecord );
+        if(gameObject == null)
+        {
+            return default;
+        }
+        T component = gameObject.GetComponent<T> ( );
+        return component;
+    }
 
 
     private void Awake ( )
