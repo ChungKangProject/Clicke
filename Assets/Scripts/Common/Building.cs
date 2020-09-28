@@ -7,7 +7,6 @@ public class Building : MonoBehaviour, IActor
 {
     private SpriteRenderer spriteRenderer;
     
-    
     public BuildingInfo buildingInfo;
 
 
