@@ -9,6 +9,7 @@ public class Building : MonoBehaviour, IActor
     
     public BuildingInfo buildingInfo;
 
+    public int Index { get => (int)buildingInfo.buildingType; }
 
     public void Load ( )
     {

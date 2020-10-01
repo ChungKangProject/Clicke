@@ -2,16 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BaseCharacter : MonoBehaviour
+public class BaseCharacter : MonoBehaviour, IActor
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public int Index { get => throw new System.NotImplementedException ( ); } 
 
-    // Update is called once per frame
-    void Update()
+    public void Load ( )
     {
         
     }

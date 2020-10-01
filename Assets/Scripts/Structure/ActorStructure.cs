@@ -5,9 +5,10 @@ namespace Developers.Structure
     ///<summary>액터의 종류</summary>
     public enum ActorType
     {
-        None = 0,           // ERROR
+        None = 0,           // 
         Character,          // 캐릭터
         Building,           // 건물
+        End
     }
 
     ///<summary>가져올 액터의 자료</summary>
@@ -15,8 +16,8 @@ namespace Developers.Structure
     public struct ActorRecord
     {
         public ActorType type;
-        public int key;
-        public ActorRecord ( ActorType actorType, int recordKey ) => (type, key) = (actorType, recordKey);
+        public int index;
+        public ActorRecord ( ActorType actorType, int recordKey ) => (type, index) = (actorType, recordKey);
     }
 
     // /************* 캐릭터 정보 *************/

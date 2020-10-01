@@ -10,11 +10,7 @@ public class GameManager : MonoSingleton<GameManager>
     public Camera MainCamera { get; private set; }
     #endregion
 
-
     private BaseGameMode gameMode;
-    
-
-
     public BaseGameMode GameMode 
     {   
         get => gameMode; 
@@ -26,33 +22,30 @@ public class GameManager : MonoSingleton<GameManager>
         }
     }
 
+    public bool IsGameStart { get; private set; }
 
-    
-    public static GameObject Create( ActorRecord actorRecord )
+
+    public static GameObject Create<T>(ActorRecord actorRecord) where T : IActor
     {
-        GameObject gameObject = MonoSingleton<LoadManager>.Instance.Get ( actorRecord );
-        return gameObject;
+        return MonoSingleton<LoadManager>.Instance.GetActor<T> ( actorRecord );
     }
 
-    public static T Create<T>(ActorRecord actorRecord) where T : IActor
+    public void OnStart()
     {
-        GameObject gameObject = MonoSingleton<LoadManager>.Instance.Get ( actorRecord );
-        if(gameObject == null)
-        {
-            return default;
-        }
-        T component = gameObject.GetComponent<T> ( );
-        return component;
+        IsGameStart = true;
     }
 
 
     private void Awake ( )
     {
+        IsGameStart = false;
+
         #region 기본 오브젝트 초기화
         MainCamera = Camera.main;
         #endregion
 
         // TODO : 우선 다른 씬이 없으므로 대체
         GameMode = GameObject.FindGameObjectWithTag ( "GameMode" ).GetComponent<BaseGameMode> ( );
+        GameMode.Load ( );
     }
 }

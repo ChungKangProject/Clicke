@@ -6,8 +6,6 @@ namespace Developers.Util
     {
         protected static T instance = null;
         protected static readonly Object sync_root = new Object ( );
-        protected static bool app_is_close = false;
-        public static bool IsAppClose { get => app_is_close; }
 
         public static T Instance
         {
@@ -54,21 +52,6 @@ namespace Developers.Util
                     instance = value;
                 }
             }
-        }
-
-        private void OnDestroy ( )
-        {
-#if ( !UNITY_EDITOR )
-            if ( Instance == this ) { app_is_close = true; }
-#endif
-        }
-
-
-        private void OnApplicationQuit ( )
-        {
-#if ( !UNITY_EDITOR )
-            if ( Instance == this ) { _app_is_close = true; }
-#endif
         }
     }
 }

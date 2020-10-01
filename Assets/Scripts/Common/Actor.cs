@@ -2,5 +2,8 @@
 
 public interface IActor
 {
+    int Index { get; }
+
     void Load ( );
+    
 }

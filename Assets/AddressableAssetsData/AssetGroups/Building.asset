@@ -18,13 +18,15 @@ MonoBehaviour:
   m_GUID: 0e80d29a34a228e4c9af33332df23e0e
   m_SerializeEntries:
   - m_GUID: 6c52649de3a510e46a196b2df7791ef7
-    m_Address: Warrior Training Center
+    m_Address: Assets/Addressables/Prefabs/Building/Warrior Training Center.prefab
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - MainLobby
   - m_GUID: c5f08f889f4e02643be4485fcc5b88a8
-    m_Address: Spearman Training Center
+    m_Address: Assets/Addressables/Prefabs/Building/Spearman Training Center.prefab
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - MainLobby
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 177d729825c893448906071b963ee6a1, type: 2}
   m_SchemaSet:
